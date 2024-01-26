@@ -16,11 +16,11 @@ public class CursosOnline {
     //Atributos
     private String titulo = "";
     private String instructor = "";
-    private Date duraWeek;
+    private int duraWeek;
     private String platForm = "";
     
     //Constructor
-    public CursosOnline(String titulo, String instructor, Date duraWeek, String platForm) {
+    public CursosOnline(String titulo, String instructor, int duraWeek, String platForm) {
         this.titulo = titulo;
         this.instructor = instructor;
         this.duraWeek = duraWeek;
@@ -44,11 +44,11 @@ public class CursosOnline {
         this.instructor = instructor;
     }
 
-    public Date getDuraWeek() {
+    public int getDuraWeek() {
         return duraWeek;
     }
 
-    public void setDuraWeek(Date duraWeek) {
+    public void setDuraWeek(int duraWeek) {
         this.duraWeek = duraWeek;
     }
 

@@ -17,11 +17,11 @@ public class Libro {
     private String titulo = "";
     private String autor = "";
     private String genero = "";
-    private Date anoPublic;
+    private String anoPublic = "";
     private String disponible = "";
     
     //Contructor
-    public Libro(String titulo, String autor, String genero, Date anoPublic) {
+    public Libro(String titulo, String autor, String genero, String anoPublic, String disponible) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;        
@@ -54,11 +54,11 @@ public class Libro {
         this.genero = genero;
     }
 
-    public Date getAnoPublic() {
+    public String getAnoPublic() {
         return anoPublic;
     }
 
-    public void setAnoPublic(Date anoPublic) {
+    public void setAnoPublic(String anoPublic) {
         this.anoPublic = anoPublic;
     }
 

@@ -19,6 +19,7 @@ public class Lab2P2_SheyllaCortez {
      */
     static Scanner entrada = new Scanner(System.in);
     static ArrayList <Usuario> usuarito = new ArrayList<>();  
+    static ArrayList recursos = new ArrayList();
     public static void main(String[] args) {
         //Estudiante
         Usuario estudiante = new Usuario("josue2", "123", "estudiante");
@@ -44,9 +45,34 @@ public class Lab2P2_SheyllaCortez {
         }
         
         //Menú
+        //Recurcos en duro
+        Libro mybook  = new Libro("principito", "JK", "literatura", "09/11/2023", "si");
+        recursos.add(mybook);
+        Articulos myArticle = new Articulos("Science", "Gabriel Marquez", "particles", "11/09/2012", "si" );
+        recursos.add(myArticle);
+        CursosOnline mycurso = new CursosOnline("Aprende a programa en java", "Emilio Cantarero", 3, "cursosOnline.com");
+        recursos.add(mycurso);
+        Conferencias confe = new Conferencias("Programacion", "Ing.Osman Mejia", "09/23/2023", 2, "conference.com");
+        recursos.add(confe);
         switch (tipoUsu2) {
             case "estudiante":
-                
+                int opcion = 0;
+                while (opcion != 1) {
+                    System.out.println("Que desea hacer: ");
+                    System.out.println("0) Listar ");
+                    System.out.println("1) Salir ");
+                    opcion = entrada.nextInt();
+                    switch (opcion) {
+                        case 0:
+                            listarResources(recursos);
+                            break;
+                        case 1:
+                            System.out.println("Saliendo ");
+                            break;
+                        default:
+                            System.out.println("Opcion incorrecta");
+                    }
+                }
                 break;
             case "profesor":
 
@@ -65,5 +91,11 @@ public class Lab2P2_SheyllaCortez {
     
     
     //Método para listar recursos
-    
+    public static void listarResources(ArrayList recursos) {
+        System.out.println("Recursos en la blioteca: ");
+        for (int i = 0; i < recursos.size(); i++) {
+            System.out.println(i + recursos.get(i).toString());
+        }
+        System.out.println("Recursos listados ");
+    }
 }

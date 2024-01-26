@@ -17,11 +17,11 @@ public class Articulos {
     private String titulo = "";
     private String autor = "";
     private String tema = "";
-    private Date fechaPublic;
+    private String fechaPublic = "";
     private String onlineAccess = "";
     
     //Contructor
-    public Articulos(String titulo, String autor, String tema, Date fechaPublic, String onlineAccess ) {
+    public Articulos(String titulo, String autor, String tema, String fechaPublic, String onlineAccess ) {
         this.titulo = titulo;
         this.autor = autor;
         this.tema = tema;
@@ -54,11 +54,11 @@ public class Articulos {
         this.tema = tema;
     }
 
-    public Date getFechaPublic() {
+    public String getFechaPublic() {
         return fechaPublic;
     }
 
-    public void setFechaPublic(Date fechaPublic) {
+    public void setFechaPublic(String fechaPublic) {
         this.fechaPublic = fechaPublic;
     }
 
