@@ -46,7 +46,7 @@ public class Lab2P2_SheyllaCortez {
         //Menú
         switch (tipoUsu2) {
             case "estudiante":
-
+                
                 break;
             case "profesor":
 
@@ -55,10 +55,15 @@ public class Lab2P2_SheyllaCortez {
 
                 break;
             default:
-                throw new AssertionError();
+                System.out.println("Tipo de usuario invalido ");
         }
 
 
     }
+    
+    //Método para crear recursos
+    
+    
+    //Método para listar recursos
     
 }
