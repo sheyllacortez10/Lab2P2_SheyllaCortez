@@ -88,7 +88,7 @@ public class Lab2P2_SheyllaCortez {
                             break;
                         case 1:
                             int option = 0;
-                            while (option != 6) {
+                            while (option != 5) {
                                 System.out.println("Que tipo de recurso desea crear: ");
                                 System.out.println("1. Libro ");
                                 System.out.println("2. Articulo ");
@@ -106,12 +106,19 @@ public class Lab2P2_SheyllaCortez {
                                     case 3:
                                         agregarCurso(recursos);
                                         break;
+                                    case 4:
+                                        agregarConferencia(recursos);
+                                        break;
+                                    case 5:
+                                        System.out.println("Saliendo ");
+                                        break;
                                     default:
-                                        throw new AssertionError();
+                                        System.out.println("Opcion Invalida ");
                                 }
                             }
+                            break;
                         default:
-                            throw new AssertionError();
+                            System.out.println("Opcion invalida ");
                     }
                 }
                 break;
@@ -182,7 +189,27 @@ public class Lab2P2_SheyllaCortez {
         CursosOnline mycurso = new CursosOnline(titulo, instructor, duraWeek, platForm);
         recursos.add(mycurso);
     }
-    
+  
+    //Método para crear conferencia
+    public static void agregarConferencia(ArrayList recursos) {
+        System.out.println("Crear recursos");
+
+        System.out.println("Ingrese titlo: ");
+        entrada.nextLine();
+        String titulo = entrada.nextLine();
+        System.out.println("Ingrese conferencista: ");
+        String conferencista = entrada.nextLine();
+        System.out.println("Ingrese fecha: ");
+        String fecha = entrada.nextLine();
+        System.out.println("Ingrese duracion: ");
+        int duracion = entrada.nextInt();
+        System.out.println("Ingrese enlace de acceso: ");
+        String linkAccess = entrada.nextLine();
+
+        Articulos myarticle = new Articulos(titulo, conferencista, fecha, duracion, linkAccess);
+        recursos.add(myarticle);
+    }
+
     //Método para listar recursos
     public static void listarResources(ArrayList recursos) {
         System.out.println("Recursos en la blioteca: ");
