@@ -15,14 +15,13 @@ public class Usuario {
     private String tipoUsu = "";
     
     //Contructor
-    public Usuario(String nameUsu, String contrasena, String tipoUsu ) {
+    public Usuario(String nameUsu, String contrasena, String tipoUsu) {
         this.nameUsu = nameUsu;
         this.contrasena = contrasena;
         this.tipoUsu =tipoUsu;
     }
     
     //Setters y getters
-
     public String getNameUsu() {
         return nameUsu;
     }
@@ -48,7 +47,6 @@ public class Usuario {
     }
     
     //ToString
-
     @Override
     public String toString() {
         return "Usuario{" + "nameUsu=" + nameUsu + ", contrasena=" + contrasena + ", tipoUsu=" + tipoUsu + '}';
