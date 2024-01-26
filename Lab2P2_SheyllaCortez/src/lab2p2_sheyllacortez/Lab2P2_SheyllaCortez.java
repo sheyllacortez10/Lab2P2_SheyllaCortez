@@ -92,7 +92,6 @@ public class Lab2P2_SheyllaCortez {
                                 System.out.println("Que tipo de recurso desea crear: ");
                                 System.out.println("1. Libro ");
                                 System.out.println("2. Articulo ");
-                                System.out.println("3. Conferencia ");
                                 System.out.println("4. Cursos en linea ");
                                 System.out.println("5. Conferencias ");
                                 System.out.println("6. Salir");
@@ -102,6 +101,10 @@ public class Lab2P2_SheyllaCortez {
                                         agregarLibro(recursos);
                                         break;
                                     case 2:
+                                        agregarArticulo(recursos);
+                                        break;
+                                    case 3:
+                                        agregarCurso(recursos);
                                         break;
                                     default:
                                         throw new AssertionError();
@@ -122,7 +125,7 @@ public class Lab2P2_SheyllaCortez {
     }
     
     //Método para crear libro
-       public static void agregarLibro(ArrayList recursos) {
+    public static void agregarLibro(ArrayList recursos) {
         System.out.println("Crear recursos");
 
         System.out.println("Ingrese titlo: ");
@@ -136,12 +139,49 @@ public class Lab2P2_SheyllaCortez {
         String anoPublic = entrada.nextLine();
         System.out.println("Ingrese disponibilidad: ");
         String disponibilidad = entrada.nextLine();
-      
+
         Libro mybook = new Libro(titulo, autor, genero, anoPublic, disponibilidad);
         recursos.add(mybook);
-        
+
     }
 
+    //Método para crear articulo
+    public static void agregarArticulo(ArrayList recursos) {
+        System.out.println("Crear recursos");
+
+        System.out.println("Ingrese titlo: ");
+        entrada.nextLine();
+        String titulo = entrada.nextLine();
+        System.out.println("Ingrese autor: ");
+        String autor = entrada.nextLine();
+        System.out.println("Ingrese tema: ");
+        String tema = entrada.nextLine();
+        System.out.println("Ingrese fecha de publicacion: ");
+        String fechaPublic = entrada.nextLine();
+        System.out.println("Ingrese acceso en linea: ");
+        String onlineAccess = entrada.nextLine();
+
+        Articulos myarticle = new Articulos(titulo, autor, tema, fechaPublic, onlineAccess);
+        recursos.add(myarticle);
+    }
+    
+    //Método para crear cursos en linea
+    public static void agregarCurso(ArrayList recursos) {
+        System.out.println("Crear recursos");
+
+        System.out.println("Ingrese titlo: ");
+        entrada.nextLine();
+        String titulo = entrada.nextLine();
+        System.out.println("Ingrese instructor: ");
+        String instructor = entrada.nextLine();
+        System.out.println("Ingrese duracion en semanas: ");
+        int duraWeek = entrada.nextInt();
+        System.out.println("Ingrese plataforma: ");
+        String platForm = entrada.nextLine();
+
+        CursosOnline mycurso = new CursosOnline(titulo, instructor, duraWeek, platForm);
+        recursos.add(mycurso);
+    }
     
     //Método para listar recursos
     public static void listarResources(ArrayList recursos) {
