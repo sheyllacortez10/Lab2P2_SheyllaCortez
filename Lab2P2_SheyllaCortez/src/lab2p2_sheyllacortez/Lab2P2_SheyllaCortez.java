@@ -6,6 +6,7 @@ package lab2p2_sheyllacortez;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -93,9 +94,9 @@ public class Lab2P2_SheyllaCortez {
                                 System.out.println("Que tipo de recurso desea crear: ");
                                 System.out.println("1. Libro ");
                                 System.out.println("2. Articulo ");
-                                System.out.println("4. Cursos en linea ");
-                                System.out.println("5. Conferencias ");
-                                System.out.println("6. Salir");
+                                System.out.println("3. Cursos en linea ");
+                                System.out.println("4. Conferencias ");
+                                System.out.println("5. Salir");
                                 option = entrada.nextInt();
                                 switch (option) {
                                     case 1:
@@ -172,6 +173,7 @@ public class Lab2P2_SheyllaCortez {
                             }
                             break;
                         case 2:
+                            eliminateResources(recursos);
                             break;
                         case 3:
                             int opc = 0;
@@ -222,7 +224,7 @@ public class Lab2P2_SheyllaCortez {
     public static void agregarLibro(ArrayList recursos) {
         System.out.println("Crear recursos");
 
-        System.out.println("Ingrese titlo: ");
+        System.out.println("Ingrese titulo: ");
         entrada.nextLine();
         String titulo = entrada.nextLine();
         System.out.println("Ingrese autor: ");
@@ -243,7 +245,7 @@ public class Lab2P2_SheyllaCortez {
     public static void agregarArticulo(ArrayList recursos) {
         System.out.println("Crear recursos");
 
-        System.out.println("Ingrese titlo: ");
+        System.out.println("Ingrese titulo: ");
         entrada.nextLine();
         String titulo = entrada.nextLine();
         System.out.println("Ingrese autor: ");
@@ -263,7 +265,7 @@ public class Lab2P2_SheyllaCortez {
     public static void agregarCurso(ArrayList recursos) {
         System.out.println("Crear recursos");
 
-        System.out.println("Ingrese titlo: ");
+        System.out.println("Ingrese titulo: ");
         entrada.nextLine();
         String titulo = entrada.nextLine();
         System.out.println("Ingrese instructor: ");
@@ -271,6 +273,7 @@ public class Lab2P2_SheyllaCortez {
         System.out.println("Ingrese duracion en semanas: ");
         int duraWeek = entrada.nextInt();
         System.out.println("Ingrese plataforma: ");
+        entrada.nextLine();
         String platForm = entrada.nextLine();
 
         CursosOnline mycurso = new CursosOnline(titulo, instructor, duraWeek, platForm);
@@ -281,7 +284,7 @@ public class Lab2P2_SheyllaCortez {
     public static void agregarConferencia(ArrayList recursos) {
         System.out.println("Crear recursos");
 
-        System.out.println("Ingrese titlo: ");
+        System.out.println("Ingrese titulo: ");
         entrada.nextLine();
         String titulo = entrada.nextLine();
         System.out.println("Ingrese conferencista: ");
@@ -291,6 +294,7 @@ public class Lab2P2_SheyllaCortez {
         System.out.println("Ingrese duracion: ");
         int duracion = entrada.nextInt();
         System.out.println("Ingrese enlace de acceso: ");
+        entrada.nextLine();
         String linkAccess = entrada.nextLine();
 
         Conferencias confe = new Conferencias(titulo, conferencista, fecha, duracion, linkAccess);
@@ -370,11 +374,41 @@ public class Lab2P2_SheyllaCortez {
             }
         }
     }
-    
+
     //Método de eliminar recurso
-    
-    
-    
+    public static void eliminateResources(ArrayList recursos) {
+        System.out.println("Ingrese el titulo a eliminar: ");
+        entrada.nextLine();
+        String titulo = entrada.nextLine();
+        for (int i = 0; i < recursos.size(); i++) {
+            if (recursos.get(i) instanceof Libro) {
+                Libro eliminar = (Libro) recursos.get(i);
+                if (eliminar.getTitulo().equals(titulo)) {
+                    recursos.remove(i);
+                }
+            } else if (recursos.get(i) instanceof Articulos){
+                Articulos eliminar = (Articulos) recursos.get(i);
+                if (eliminar.getTitulo().equals(titulo)) {
+                    recursos.remove(i);
+                }
+            } else if (recursos.get(i) instanceof CursosOnline) {
+                CursosOnline eliminar = (CursosOnline) recursos.get(i);
+                if (eliminar.getTitulo().equals(titulo)) {
+                    recursos.remove(i);
+                }
+            } else if (recursos.get(i) instanceof Conferencias) {
+                Conferencias eliminar = (Conferencias) recursos.get(i);
+                if (eliminar.getTitulo().equals(titulo)) {
+                    recursos.remove(i);
+                }
+            } else {
+                System.out.println("Invalido ");
+            }
+        }
+
+    }
+
+
     
     
     
@@ -383,13 +417,11 @@ public class Lab2P2_SheyllaCortez {
     //Método para modificar recursos siguientes
     public static void modiRecursos(ArrayList recursos, int opc) {
         for (int i = 0; i < recursos.size(); i++) {
-            if (opc == 1) {
-                System.out.println("Opcion listada para modidficar atributo por atributo ");
-            } else if (opc == 2) {
+            if (opc == 2) {
                 if (recursos.get(i) instanceof Articulos) {
                     Articulos nuevoArticulo = (Articulos) recursos.get(i);
                     //Pedirle al usuario
-                    System.out.println("Ingrese titlo: ");
+                    System.out.println("Ingrese titulo: ");
                     entrada.nextLine();
                     String titulo = entrada.nextLine();
                     System.out.println("Ingrese autor: ");
@@ -409,7 +441,7 @@ public class Lab2P2_SheyllaCortez {
                 if (recursos.get(i) instanceof CursosOnline) {
                     CursosOnline nuevosCursos = (CursosOnline) recursos.get(i);
                     //Nuevo
-                    System.out.println("Ingrese titlo: ");
+                    System.out.println("Ingrese titulo: ");
                     entrada.nextLine();
                     String titulo = entrada.nextLine();
                     System.out.println("Ingrese instructor: ");
@@ -428,7 +460,7 @@ public class Lab2P2_SheyllaCortez {
                 if (recursos.get(i) instanceof Conferencias) {
                     Conferencias nuevaConference = (Conferencias) recursos.get(i);
                     //Agg
-                    System.out.println("Ingrese titlo: ");
+                    System.out.println("Ingrese titulo: ");
                     entrada.nextLine();
                     String titulo = entrada.nextLine();
                     System.out.println("Ingrese conferencista: ");
